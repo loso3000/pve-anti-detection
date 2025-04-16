@@ -80,8 +80,11 @@ sed -i 's/"QEMU"/"'${brand}'"/g' hw/scsi/mptconfig.c
 sed -i 's/0000111122223333/1145141919810000/g' hw/scsi/mptconfig.c
 sed -i 's/"QEMU/"'${brand}'/g' hw/scsi/scsi-bus.c
 sed -i 's/"QEMU/"'${brand}'/g' hw/scsi/megasas.c
+sed -i 's/"QEMU HARDDISK/"SAMSUNG SSD 870 EVO/g' hw/scsi/scsi-disk.c
 sed -i 's/"QEMU/"SAMSUNG/g' hw/scsi/scsi-disk.c
-sed -i 's/HARDDISK"/'${HARDDISK}'"/g' hw/scsi/scsi-disk.c
+# sed -i 's/HARDDISK"/'${HARDDISK}'"/g' hw/scsi/scsi-disk.c
+# sed -i 's/"QEMU/"'${brand}'/g' hw/scsi/scsi-disk.c
+sed -i 's/"QEMU HARDDISK/"SAMSUNG SSD 870 EVO/g' hw/ide/core.c
 sed -i 's/"QEMU/"'${brand}'/g' hw/scsi/spapr_vscsi.c
 sed -i 's/"QEMU/"'${brand}'/g' hw/sd/sd.c
 sed -i 's/"QEMU/"'${brand}'/g' hw/ufs/lu.c
