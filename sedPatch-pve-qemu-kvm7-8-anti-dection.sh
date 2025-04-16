@@ -3,7 +3,7 @@
 #参考开源项目 https://github.com/zhaodice/proxmox-ve-anti-detection 编写，处理重复劳作
 #作者 李晓流 & 大大帅666 20240824出品 https://space.bilibili.com/565938745
 brand="DELL" #这里修改品牌，仅4个大写英文字母
-HARDDISK="SAMSUNG SSD 870 EVO" #硬盘名字
+HARDDISK="SSD 870 EVO" #硬盘名字
 intel="intel"
 echo "开始sed工作"
 sed -i 's/QEMU v" QEMU_VERSION/'${brand}' v" QEMU_VERSION/g' block/vhdx.c
@@ -80,8 +80,8 @@ sed -i 's/"QEMU"/"'${brand}'"/g' hw/scsi/mptconfig.c
 sed -i 's/0000111122223333/1145141919810000/g' hw/scsi/mptconfig.c
 sed -i 's/"QEMU/"'${brand}'/g' hw/scsi/scsi-bus.c
 sed -i 's/"QEMU/"'${brand}'/g' hw/scsi/megasas.c
-sed -i 's/"QEMU HARDDISK/"'${HARDDISK}'/g' hw/scsi/scsi-disk.c
-sed -i 's/"QEMU/"'${brand}'/g' hw/scsi/scsi-disk.c
+sed -i 's/"QEMU/"SAMSUNG/g' hw/scsi/scsi-disk.c
+sed -i 's/HARDDISK"/'${HARDDISK}'"/g' hw/scsi/scsi-disk.c
 sed -i 's/"QEMU/"'${brand}'/g' hw/scsi/spapr_vscsi.c
 sed -i 's/"QEMU/"'${brand}'/g' hw/sd/sd.c
 sed -i 's/"QEMU/"'${brand}'/g' hw/ufs/lu.c
