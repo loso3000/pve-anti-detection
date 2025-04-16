@@ -138,4 +138,5 @@ sed -i 's/t->location = 0x01;/t->location = 0x03;/g' hw/smbios/smbios.c
 sed -i 's/t->error_correction = 0x06;/t->error_correction = 0x03;/g' hw/smbios/smbios.c
 sed -i 's/"QEMU TCG CPU version/"TCG CPU version/g' target/i386/cpu.c
 sed -i 's/"Microsoft Hv/"GenuineIntel/g' target/i386/cpu.c  #解决n卡vgpu驱动43问题
+sed -i 's/!object_dynamic_cast/object_dynamic_cast/g' hw/vfio/igd.c
 echo "结束sed工作"
