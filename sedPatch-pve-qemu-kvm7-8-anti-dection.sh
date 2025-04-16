@@ -4,6 +4,7 @@
 #作者 李晓流 & 大大帅666 20240824出品 https://space.bilibili.com/565938745
 brand="DELL" #这里修改品牌，仅4个大写英文字母
 HARDDISK="SAMSUNG SSD 870 EVO" #硬盘名字
+intel="intel"
 echo "开始sed工作"
 sed -i 's/QEMU v" QEMU_VERSION/'${brand}' v" QEMU_VERSION/g' block/vhdx.c
 sed -i 's/QEMU VVFAT", 10/'${brand}' VVFAT", 10/g' block/vvfat.c
@@ -46,9 +47,9 @@ fi
 sed -i 's/"QEMU/"'${brand}'/g' hw/i386/fw_cfg.c
 sed -i 's/"QEMU Virtual CPU/"CPU/g' hw/i386/pc.c
 sed -i 's/"QEMU/"'${brand}'/g' hw/i386/pc_piix.c
-sed -i 's/Standard PC (i440FX + PIIX, 1996)/'${brand}' M4A88TD-Mi440fx/g' hw/i386/pc_piix.c
+sed -i 's/Standard PC (i440FX + PIIX, 1996)/'${intel}' H610M Plus(MS97Di-440)/g' hw/i386/pc_piix.c
 sed -i 's/"QEMU/"'${brand}'/g' hw/i386/pc_q35.c
-sed -i 's/Standard PC (Q35 + ICH9, 2009)/'${brand}' M4A88TD-Mq35/g' hw/i386/pc_q35.c
+sed -i 's/Standard PC (Q35 + ICH9, 2009)/'${intel}' H610M Plus(MS97q-35)/g' hw/i386/pc_q35.c
 sed -i 's/mc->name, pcmc->smbios_legacy_mode,/"'${brand}'-PC", pcmc->smbios_legacy_mode,/g' hw/i386/pc_q35.c
 sed -i 's/"QEMU/"'${brand}'/g' hw/ide/atapi.c
 sed -i 's/"QEMU/"'${brand}'/g' hw/ide/core.c
@@ -109,10 +110,10 @@ sed -i 's/0x51454d5520434647ULL/0x4155535520434647ULL/g' include/standard-header
 sed -i 's/"QEMU/"'${brand}'/g' migration/migration.c
 sed -i 's/"QEMU/"'${brand}'/g' migration/rdma.c
 sed -i 's/0x51454d5520434647ULL/0x4155535520434647ULL/g' pc-bios/optionrom/optionrom.h
-sed -i 's/"QEMU/"'${brand}'/g' pc-bios/s390-ccw/virtio-scsi.h
-sed -i 's/"QEMU/"'${brand}'/g' roms/seabios/src/fw/ssdt-misc.dsl
-sed -i 's/"QEMU/"'${brand}'/g' roms/seabios-hppa/src/fw/ssdt-misc.dsl
-sed -i 's/KVMKVMKVM\\0\\0\\0/GenuineIntel/g' target/i386/kvm/kvm.c
+sed -i 's/"QEMU/"'${intel}'/g' pc-bios/s390-ccw/virtio-scsi.h
+sed -i 's/"QEMU/"'${intel}'/g' roms/seabios/src/fw/ssdt-misc.dsl
+sed -i 's/"QEMU/"'${intel}'/g' roms/seabios-hppa/src/fw/ssdt-misc.dsl
+sed -i 's/KVMKVMKVM\\0\\0\\0/GenuineIntel/g' target/i386/kvm/kvm.c  #禁用KVM签名
 sed -i 's/QEMUQEMUQEMUQEMU/ASUSASUSASUSASUS/g' target/s390x/tcg/misc_helper.c
 sed -i 's/"QEMU/"'${brand}'/g' target/s390x/tcg/misc_helper.c
 sed -i 's/"KVM/"ATX/g' target/s390x/tcg/misc_helper.c
