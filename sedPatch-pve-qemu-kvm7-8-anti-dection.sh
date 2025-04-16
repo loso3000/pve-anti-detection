@@ -23,6 +23,7 @@ else
 	sed -i 's/    Aml \*ssdt/       \/\/FUCK YOU~~~\n       return;\/\/do this once\n    Aml \*ssdt/g' hw/acpi/vmgenid.c
 	echo "hw/acpi/vmgenid.c 文件处理完成（第一次处理，只处理一次）"
 fi
+sed -i 's/"QEMU HARDDISK/"SAMSUNG SSD 870 EVO/g' hw/ide/core.c
 sed -i 's/"QEMUQEQEMUQEMU/"ASUSASASUSASUS/g' hw/acpi/core.c
 sed -i 's/"QEMU/"'${brand}'/g' hw/acpi/core.c
 sed -i 's/QEMU N800/'${brand}' N800/g' hw/arm/nseries.c
@@ -84,7 +85,6 @@ sed -i 's/"QEMU HARDDISK/"SAMSUNG SSD 870 EVO/g' hw/scsi/scsi-disk.c
 sed -i 's/"QEMU/"SAMSUNG/g' hw/scsi/scsi-disk.c
 # sed -i 's/HARDDISK"/'${HARDDISK}'"/g' hw/scsi/scsi-disk.c
 # sed -i 's/"QEMU/"'${brand}'/g' hw/scsi/scsi-disk.c
-sed -i 's/"QEMU HARDDISK/"SAMSUNG SSD 870 EVO/g' hw/ide/core.c
 sed -i 's/"QEMU/"'${brand}'/g' hw/scsi/spapr_vscsi.c
 sed -i 's/"QEMU/"'${brand}'/g' hw/sd/sd.c
 sed -i 's/"QEMU/"'${brand}'/g' hw/ufs/lu.c
