@@ -7,9 +7,11 @@ git clone git://git.proxmox.com/git/pve-qemu.git
 cd pve-qemu
 TARGET_VERSION="9.1.2-1"
 git fetch --tags 
-
+git tag -l
+atab=`git tag -l`
+echo atab:$atab
 TAG=$(git tag -l | grep -E "v?${TARGET_VERSION//./\\.}$" | head -1)
-
+echo   TAG:$TAG
 if [ -z "$TAG" ]; then
     echo "Error: Version $TARGET_VERSION not found in git tags"
     git tag -l | grep '9.1.2'
