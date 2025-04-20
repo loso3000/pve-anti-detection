@@ -6,24 +6,11 @@ df -h
 git clone git://git.proxmox.com/git/pve-qemu.git
 cd pve-qemu
 TARGET_VERSION="9.1.2-1"
-git fetch --tags 
-git tag -l
-atab=`git tag -l`
-echo atab:$atab
-TAG=$(git tag -l | grep -E "v?${TARGET_VERSION//./\\.}$" | head -1)
-echo   TAG:$TAG
-if [ -z "$TAG" ]; then
-    echo "Error: Version $TARGET_VERSION not found in git tags"
-    git tag -l | grep '9.1.2'
-    exit 1
-else
-    echo "Found tag: $TAG"
-    git checkout "$TAG"
-fi
-#git reset --hard 053f68a7aca508dc2dba9b8947b74a0704e51baf
-git describe --tags 
 
-exit
+git tag -l
+
+git reset --hard git reset --hard c4efa30b307fc15df5c00f353494d1aec1702680
+
 apt install devscripts -y
 mk-build-deps --install
 make
